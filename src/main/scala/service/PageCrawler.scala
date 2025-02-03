@@ -24,14 +24,13 @@ class PageCrawlerImpl extends PageCrawler {
     }
   }
 
-  // TODO async
   override def findTitles(urls: Seq[String]): IO[Map[String, String]] = {
     urls
       .map(url =>
         findTitle(url)
           .map(title => url -> title.getOrElse(""))
       )
-      .sequence
+      .parSequence
       .map(_.toMap)
   }
 
