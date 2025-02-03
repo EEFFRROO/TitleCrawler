@@ -18,8 +18,8 @@ class PageCrawlerImpl extends PageCrawler {
           case (start, end) if start >= 0 && end >= end => Some(page.substring(start + startTag.length, end).trim)
           case _ => None
         }
-      case Left(_) =>
-        println("Request finished with error, cannot find title")
+      case Left(error) =>
+        println(error)
         None
     }
   }

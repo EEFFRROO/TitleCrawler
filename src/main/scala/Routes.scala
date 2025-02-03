@@ -1,10 +1,9 @@
 import cats.effect.IO
 import io.circe.generic.auto._
-import org.http4s.{EntityDecoder, HttpRoutes}
-import org.http4s.Method.GET
-import org.http4s.circe.CirceEntityCodec.{circeEntityDecoder, circeEntityEncoder}
+import org.http4s.circe.CirceEntityCodec.circeEntityEncoder
 import org.http4s.circe.jsonOf
 import org.http4s.dsl.io._
+import org.http4s.{EntityDecoder, HttpRoutes}
 import service.PageCrawler
 
 
